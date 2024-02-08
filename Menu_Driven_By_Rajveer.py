@@ -106,7 +106,7 @@ class ArrayManager:
                 if self.arr[j]>self.arr[j+1]:
                     temp = self.arr[j+1] 
                     self.arr[j+1] = self.arr[j]
-                    self.arr[j] = temp          
+                    self.arr[j] = temp           
             
     # def delete_at_index(self, New_values5):
     #     if self.N == 0:
