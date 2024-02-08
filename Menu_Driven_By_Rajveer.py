@@ -100,6 +100,13 @@ class ArrayManager:
                 self.arr[i]=self.arr[i+1]
             self.N-=1  
             print("YAY")
+    def bubble(self):
+        for i in range(0,self.N-1):
+            for j in range(0,self.N-i-1):
+                if self.arr[j]>self.arr[j+1]:
+                    temp = self.arr[j+1] 
+                    self.arr[j+1] = self.arr[j]
+                    self.arr[j] = temp          
             
     # def delete_at_index(self, New_values5):
     #     if self.N == 0:
@@ -124,8 +131,9 @@ while(1):
     print("4. Insert value at a given index location")
     print("5. Insert value after a given value")
     print("6. Search value in array")
-    print("7 .delete value at end")
-    print("8 .delete value at front")
+    print("7. delete value at end")
+    print("8. delete value at front")
+    print("9. for bubble sort")
     # print("9 .delete value at index")
     
     
@@ -160,7 +168,10 @@ while(1):
     #     arraymanager.delete_at_index(New_values5)    
     elif(ch==8):
         val_5 = int(input("Enter a value to search : "))
-        arraymanager.Bin_Search()      
+        arraymanager.Bin_Search()
+    elif(ch==9):
+        #val_6 = int(input("Enter a value to search : "))
+        arraymanager.bubble()          
     else:
         print("\n'Invalid Input' :(")
 
