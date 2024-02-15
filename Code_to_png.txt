@@ -1,0 +1,55 @@
+import numpy as np 
+import cv2
+
+matrix = np.zeros((500,500),dtype=int)
+k=127
+a=125
+for i in range(75,175):
+    for j in range(a,k):
+        matrix[i][j]=1
+    k+=1
+    a-=1
+    if k ==200:
+        break    
+matrix*=255
+cv2.imwrite("output.png",matrix)
+out=cv2.imread("output.png",0)
+cv2.imshow("output",out)
+key=cv2.waitKey(0)     
+
+'''matrix1 = np.zeros((500,500),dtype=int)
+       
+for i in range(450):
+    for j in range(400):
+        if matrix[i][j]!=0:
+            matrix1[i+50][j+100]=matrix[i][j]
+
+cv2.imwrite("output1.png",matrix1)
+out=cv2.imread("output1.png",0)
+cv2.imshow("output",out)
+key=cv2.waitKey(0)        '''
+      
+
+matrix2 = np.zeros((500,500),dtype=int)
+matrix2[0][0]=matrix[0][0]
+matrix2[0][499]=matrix[0][499]
+matrix2[499][0]=matrix[499][0]
+matrix2[499][499]=matrix[499][499]
+
+c1=0
+c2=0
+for i in range(499):
+    for j in range(499):
+        if matrix[c1][c2]!=0:
+            matrix2[i-449][j-399]=matrix[c1][c2]
+        c2+=1
+    c1+=1
+    if c1==499:
+        break
+    c2=0        
+
+cv2.imwrite("output2.png",matrix2)
+out=cv2.imread("output2.png",0)
+cv2.imshow("output",out)
+key=cv2.waitKey(0)     
+
