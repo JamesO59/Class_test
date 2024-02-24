@@ -62,7 +62,7 @@ class ArrayManager:
             self.N += 1 
             print("\nValue added at the given index successfully :)")
 
-    def insert_after_value(self, existing_value, new_value2): # testing the commmand
+    def insert_after_value(self, existing_value, new_value2): 
 
         indeces = np.where(self.arr == existing_value)
         index = indeces[0][0]
