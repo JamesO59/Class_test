@@ -24,7 +24,7 @@ class ArrayManager:
 
     def print_array(self):
         if self.N==0:
-            print("\nEmpty Array :(")
+            print("\nEmpty Array :(\n")
         else:
             for i in range(0, self.N):
                 print(self.arr[i])   
@@ -65,7 +65,7 @@ class ArrayManager:
     def insert_after_value(self, existing_value, new_value2):
 
         indeces = np.where(self.arr == existing_value)
-        index = indeces[0]
+        index = indeces[0][0]
         for i in range(self.N-1, index-1, -1):
                 self.arr[i+1] = self.arr[i]
         self.arr[index+1] = new_value2   
@@ -79,7 +79,7 @@ class ArrayManager:
         for i in self.arr:
             if i == new_value3:
                 condition = True
-                print(f"{i} found at index {index}")
+                print(f\n"{i} found at index {index}\n")
                 break
         if(condition==False):
             print("Element not found")
