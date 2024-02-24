@@ -1,16 +1,5 @@
-# Create a menu driven program for arrays having access to:
-# 1. Print the array - done
-# 2. Insert value at end - done
-# 3. Insert value at front - done
-# 4. Insert value at a given index location 
-# 5. Insert value after a given value
-# 6. Search value in array
-
-#Create a menu driven program for arrays having access to:
-
 #2. Delete value at end
 #3. Delete value at front
-#4. Delete value at a given index location
 #5. Delete value after a given value
 
 import numpy as np
@@ -98,19 +87,24 @@ class ArrayManager:
         else:
             for i in range(0, self.N-1):
                 self.arr[i]=self.arr[i+1]
-            self.N-=1  
             print(f"{self.arr[0]} value deleted successfully :)")  # problem occuring ??        
+            self.N-=1  
             
-    def delete_at_index(self, New_values5):
+    def delete_the_value(self, New_values6):
         if self.N == 0:
             print("Array Underflow :(")
-            
-        elif():
-            for i in range(0, self.N-1):
-                self.arr[i]=self.arr[i+1]
-            self.N-=1  
-            print("YAY")        
-        
+        else:
+            indeces = np.where(self.arr == New_values6)
+            index = indeces[0][0]
+            condition = False
+            for i in range(index+1, self.N):
+                condition = True
+                self.arr[i-1]=self.arr[i]
+            print(f"{self.arr[index]} value deleted successfully :)") # same problem occuring ??    
+            self.N-=1     
+            if(condition==False):
+                print("Element not found")
+
     def bubble(self):
         for i in range(0,self.N-1):
             for j in range(0,self.N-i-1):
@@ -130,10 +124,10 @@ while(1):
     print("4. Insert value at a given index location")
     print("5. Insert value after a given value")
     print("6. Search value in array")
-    print("7. delete value at end")
-    print("8. delete value at front")
-    print("9. for bubble sort")
-    # print("9 .delete value at index")
+    print("7. Delete value at end")
+    print("8. Delete value at front")
+    print("9. For bubble sort")
+    print("10. Delete the given value")
     
     
     
@@ -161,16 +155,16 @@ while(1):
     elif(ch==7):
         arraymanager.delete_at_end()           
     elif(ch==8):
-        arraymanager.delete_at_front()
-    # elif(ch==9):
-    #     New_values5 = int(input("Enter Index value :"))
-    #     arraymanager.delete_at_index(New_values5)    
-    elif(ch==8):
-        val_5 = int(input("Enter a value to search : "))
-        arraymanager.Bin_Search()
+        arraymanager.delete_at_front()  
+    # elif(ch==8):
+    #     val_5 = int(input("Enter a value to search : "))
+    #     arraymanager.Bin_Search()
     elif(ch==9):
         #val_6 = int(input("Enter a value to search : "))
-        arraymanager.bubble()          
+        arraymanager.bubble()        
+    elif(ch==10):
+        New_values6 = int(input("Enter Index value :"))
+        arraymanager.delete_the_value(New_values6)        
     else:
         print("\n'Invalid Input' :(")
 
