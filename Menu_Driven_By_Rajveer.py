@@ -89,7 +89,7 @@ class ArrayManager:
             print("Array Underflow :(")
         else:
             self.N-=1  
-            print("Delete ")        
+            print(f"{self.arr[self.N]} value deleted successfully :)")        
             
     def delete_at_front(self):
         
@@ -99,7 +99,7 @@ class ArrayManager:
             for i in range(0, self.N-1):
                 self.arr[i]=self.arr[i+1]
             self.N-=1  
-            print("YAY")
+            print(f"{self.arr[0]} value deleted successfully :)")  # problem occuring ??
     def bubble(self):
         for i in range(0,self.N-1):
             for j in range(0,self.N-i-1):
