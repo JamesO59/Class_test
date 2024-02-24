@@ -79,7 +79,7 @@ class ArrayManager:
         for i in self.arr:
             if i == new_value3:
                 condition = True
-                print(f\n"{i} found at index {index}\n")
+                print(f"\n{i} found at index {index}\n")
                 break
         if(condition==False):
             print("Element not found")
