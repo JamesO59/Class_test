@@ -1,3 +1,4 @@
+"""
 #2. Delete value at end
 #3. Delete value at front
 #5. Delete value after a given value
@@ -156,17 +157,46 @@ while(1):
         arraymanager.delete_at_end()           
     elif(ch==8):
         arraymanager.delete_at_front()  
-    # elif(ch==8):
-    #     val_5 = int(input("Enter a value to search : "))
-    #     arraymanager.Bin_Search()
     elif(ch==9):
-        #val_6 = int(input("Enter a value to search : "))
         arraymanager.bubble()        
     elif(ch==10):
         New_values6 = int(input("Enter Index value :"))
         arraymanager.delete_the_value(New_values6)        
     else:
         print("\n'Invalid Input' :(")
+
+"""
+
+# Lab Assignment 3 :
+# 1. Implement binary search
+# 2. Find transpose of a matrix.
+# 3. Find the sum of two matrices.
+# 4. Multiply two matrices.
+        
+def Binary_search(arr, user_input):
+    hight_bound =  len(arr)-1
+    low_bound= 0
+    while  (low_bound <= hight_bound):
+        mid = (low_bound + hight_bound)//2
+        if arr[mid] == user_input:
+            return mid
+        elif arr[mid] < user_input:
+            lower_bound  = mid - 1
+        else:
+            hight_bound  = mid + 1    
+    return -1    
+
+
+
+user_input = int(input("Enter a value to search in an array: "))
+arr = ([1,2,3,4,5,6,10])        
+
+result = Binary_search(arr, user_input)
+
+if  result !=-1:
+    print(f"Your element found  at index position {result}")
+else:
+    print("Element not found")    
 
 
 
