@@ -70,7 +70,7 @@ class ArrayManager:
                 self.arr[i+1] = self.arr[i]
         self.arr[index+1] = new_value2   
         self.N = self.N+1 
-        print(f"Value {new_value2} replaced successfully :)")
+        print(f"\nValue {new_value2} replaced successfully :)\n")
 
     def SEARCH(self, new_value3):
         indeces = np.where(self.arr == new_value3)
