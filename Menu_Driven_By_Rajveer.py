@@ -59,7 +59,7 @@ class ArrayManager:
             for i in range(self.N-1, P-1, -1):
                 self.arr[i+1] = self.arr[i]
             self.arr[P] = new_value
-            self.N += 1
+            self.N += 1 # testing the commmand
             print("\nValue added at the given index successfully :)")
 
     def insert_after_value(self, existing_value, new_value2):
