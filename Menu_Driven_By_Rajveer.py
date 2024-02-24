@@ -99,26 +99,25 @@ class ArrayManager:
             for i in range(0, self.N-1):
                 self.arr[i]=self.arr[i+1]
             self.N-=1  
-            print(f"{self.arr[0]} value deleted successfully :)")  # problem occuring ??
+            print(f"{self.arr[0]} value deleted successfully :)")  # problem occuring ??        
+            
+    def delete_at_index(self, New_values5):
+        if self.N == 0:
+            print("Array Underflow :(")
+            
+        elif()
+            for i in range(0, self.N-1):
+                self.arr[i]=self.arr[i+1]
+            self.N-=1  
+            print("YAY")        
+        
     def bubble(self):
         for i in range(0,self.N-1):
             for j in range(0,self.N-i-1):
                 if self.arr[j]>self.arr[j+1]:
                     temp = self.arr[j+1] 
                     self.arr[j+1] = self.arr[j]
-                    self.arr[j] = temp           
-            
-    # def delete_at_index(self, New_values5):
-    #     if self.N == 0:
-    #         print("Array Underflow :(")
-            
-    #     elif()
-    #         for i in range(0, self.N-1):
-    #             self.arr[i]=self.arr[i+1]
-    #         self.N-=1  
-    #         print("YAY")        
-    # def Bin_Search(self, val_5):
-        
+                    self.arr[j] = temp     
             
 
 SIZE = 10
