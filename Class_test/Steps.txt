@@ -1,0 +1,10 @@
+git add. 
+
+git commit -m "sf e"
+
+git push origin main
+
+
+for others repo:
+
+git push origin main --allow-unreleted-history
