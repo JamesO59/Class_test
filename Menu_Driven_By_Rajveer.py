@@ -1,7 +1,3 @@
-"""
-#2. Delete value at end
-#3. Delete value at front
-#5. Delete value after a given value
 
 import numpy as np
 class ArrayManager:
@@ -14,7 +10,7 @@ class ArrayManager:
 
     def print_array(self):
         if self.N==0:
-            print("\nEmpty Array :(\n")
+            print("\nEmpty Array :(\n") 
         else:
             for i in range(0, self.N):
                 print(self.arr[i])   
@@ -86,9 +82,9 @@ class ArrayManager:
         if self.N == 0:
             print("Array Underflow :(")
         else:
+            print(f"{self.arr[0]} deleted successfully :)")       
             for i in range(0, self.N-1):
                 self.arr[i]=self.arr[i+1]
-            print(f"{self.arr[0]} value deleted successfully :)")  # problem occuring ??        
             self.N-=1  
             
     def delete_the_value(self, New_values6):
@@ -98,10 +94,10 @@ class ArrayManager:
             indeces = np.where(self.arr == New_values6)
             index = indeces[0][0]
             condition = False
-            for i in range(index+1, self.N):
+            print(f"{self.arr[index+1]} value deleted successfully :)") 
+            for i in range(index+2, self.N):
                 condition = True
                 self.arr[i-1]=self.arr[i]
-            print(f"{self.arr[index]} value deleted successfully :)") # same problem occuring ??    
             self.N-=1     
             if(condition==False):
                 print("Element not found")
@@ -119,6 +115,7 @@ SIZE = 10
 arraymanager = ArrayManager(SIZE)
 while(1):
     print("===== Array Manager =====")
+    print("0. To Exit")
     print("1. Print the array")
     print("2. Insert value at end")
     print("3. Insert value at front")
@@ -133,8 +130,10 @@ while(1):
     
     
     ch = int(input("Enter your choice: "))
-
-    if(ch==1):
+    if(ch==0):
+        print("\nExiting ... bye :)\n")
+        break
+    elif(ch==1):
         arraymanager.print_array()
     elif(ch==2):
         Value = int(input("\nEnter a value to add at end: "))
@@ -165,13 +164,11 @@ while(1):
     else:
         print("\n'Invalid Input' :(")
 
-"""
 
+"""
+#2
 # Lab Assignment 3 :
 # 1. Implement binary search
-# 2. Find transpose of a matrix.
-# 3. Find the sum of two matrices.
-# 4. Multiply two matrices.
         
 def Binary_search(arr, user_input):
     hight_bound =  len(arr)-1
@@ -200,3 +197,122 @@ else:
 
 
 
+# 2. Find transpose of a matrix.
+
+import numpy as np
+
+arr = np.array([[1,2],[3,4]]) 
+print(f"\n {arr} :Default matrix\n")
+result = np.empty((len(arr[0]), len(arr)), dtype=arr.dtype) # datatype mismatch like int64 and int32
+
+for i in range(len(arr)):
+    for j in range(len(arr[0])):
+        result[j][i] = arr[i][j]
+
+print(f"\n{result} : is the  Transposed Matrix \n ")  
+
+
+# 3. Find the sum of two matrices.
+import numpy as np
+
+arr = np.array([[1,2],[3,4]]) 
+arr2 = np.array([[5,6],[7,8]]) 
+print(f"\n {arr} : matrix 1\n")
+print(f"\n {arr2} : matrix 2\n")
+result2 = np.empty((len(arr[0]), len(arr)), dtype=arr.dtype)
+
+for  i in range(len(arr)):
+    for  j in range(len(arr[0])):
+        result2[i][j] = arr[i][j] + arr2[i][j]
+
+print(f"{result2} : is the sum of the two matices")        
+
+
+# 4. Multiply two matrices.
+import numpy as np
+
+arr = np.array([[1, 2],
+                [3, 4]])
+arr2 = np.array([[5, 6],
+                 [7, 8]])
+print(f"\n{arr} <--- is the matrix 1\n")
+print(f"\n{arr2} <--- is the matrix 2\n")
+result = np.zeros((len(arr), len(arr[0])), dtype=arr.dtype)
+for i in range(len(arr)):
+    for j in range(len(arr2[0])):
+        for k in range(len(arr2)):
+            result[i][j] += arr[i][k] * arr2[k][j]
+
+print(f"{result} <--- is the product of  matrix 1 and 2.\n")
+"""
+
+"""
+# Lab assignment 4
+
+# Insertion sort
+def insertion_sort(arr):
+    for i in range(1, len(arr)):
+        j=i
+        while arr[j-1]>arr[j] and j>0:
+            arr[j-1], arr[j] = arr[j], arr[j-1]
+            j-=1
+            
+arr = [6,5,3,1,2,7,4,8,9]
+print(f"{arr} : original array")
+insertion_sort(arr)
+print(f"\n{arr} : is the sorted array")
+
+
+
+# Selection sort
+
+import numpy as np
+
+def selection_sort(arr):
+    for i in range(0, len(arr) - 1):
+        current_min_idx = i
+        for j in range(i+1, len(arr)):
+            if arr[j] < arr[current_min_idx]:
+                current_min_idx = j
+        
+        arr[i], arr[current_min_idx] = arr[current_min_idx], arr[i]
+
+arr = [6,5,3,1,2,7,4,8,9]
+selection_sort(arr)
+print(arr)
+
+"""
+
+"""
+# Lab assignment 5
+
+ct = 4
+
+import numpy as np
+arr = np.array([1, 2, 4, 5])
+flag = -1
+se = int(input("Enter a number to find : "))
+for i in range(0, len(arr)):
+    if(arr[i]==se):
+        print(f'Element {se} found at  index {i}')
+        flag = 1
+        ct = ct + 5
+        break
+    else:
+        ct = ct + 2
+        pass
+if flag == -1:
+    print("Element not found")
+    ct = ct + 2
+ct = ct + 1    
+
+print(f"\nNumber of comparisons made are {ct}")
+
+best_case = 10
+average_case = (arr[0]+arr[1]+arr[2]+arr[3])/len(arr)
+worst_case = 16
+print(f"\nBest case time complexity is O({best_case})")
+print(f"Average case time complexity is O({average_case})")
+print(f"Worst case time complexity is O({worst_case})")
+
+"""
