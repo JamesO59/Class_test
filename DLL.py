@@ -51,9 +51,13 @@ class Linked_List:
         else:
             new_node = Node(new_data)
             PTR = self.head
-            while PTR!=VAL:
+            while PTR.data!=VAL and PTR!=None:
                 PTR = PTR.next
-            new_node            
+            print(PTR.data)
+            # new_node.prev = PTR 
+            # new_node.next = PTR.next
+            # PTR.next = new_node
+            # PTR.next.prev = new_node           
         
         
         
@@ -70,7 +74,8 @@ while(1):
     print("1. Traversing the Linked List")
     print("2. Adding a Element at Front")
     print("3. Adding a Element at End")
-    print("4. Sum of the Linked List")
+    print("4. Insert Element after value")
+    # print("4. Sum of the Linked List")
     
     print()
     ch = int(input("Enter you choice : "))
@@ -85,6 +90,6 @@ while(1):
     elif(ch==4):
         user3 = int(input(f"\nEnter Value to add after : ")) 
         user4 = int(input(f"\nEnter number to add : ")) 
-        LL.insert_at_end(user3,user4)
+        LL.insert_after_value(user3,user4)
     else:
         print(f"\ninvalid input")    
