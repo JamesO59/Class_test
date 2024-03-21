@@ -1,4 +1,4 @@
-# Traversing of Linked List Nodes
+# Traversing of Singly Linked List Nodes
 
 class Node:
     def __init__(self, data=None):
